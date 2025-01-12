@@ -37,7 +37,7 @@ To get started with the application, follow these steps:
    ```
    
 3. Install dependencies
-   - Vite
+   - React + Vite
    - Redux
    - React-Router
    - Material UI
@@ -52,4 +52,14 @@ To get started with the application, follow these steps:
 
 Now the application is ready to use! To start it, use Parcel:
 ```bash
-npx parcel index.html 
+npm run dev
+```
+
+##  Using
+![films_auth](https://github.com/user-attachments/assets/a9944ff1-35aa-4eb7-bbca-7aa4e857484a)
+1. Regestration to https://www.themoviedb.org/
+2. Get an API access key
+3. Open Project "Films"
+4. Enter email
+5. Enter API key
+6. Welcome
