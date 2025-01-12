@@ -53,12 +53,7 @@ To get started with the application, follow these steps:
 * Redux
 * React-Router
 * Material UI
-
-5. **Install additional libraries:**
-
-   ```bash
-   npm i js-cookie
-   ```
+* JS-Сookie
 
 Now the application is ready to use! To start it, run:
 
