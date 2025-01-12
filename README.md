@@ -1,6 +1,8 @@
+![film1](https://github.com/user-attachments/assets/8dec0428-1b11-4e9e-b5f5-8a26684bca0d)
+
 # Overview
 
-This web application serves as a comprehensive movie catalog, enabling users to search for films, create collections based on various filters, and log in for personalized use. The project is built using React, Redux, React-Router-DOM, and adheres to a functional design pattern. The user interface is crafted with Material UI, ensuring a modern and responsive design.
+This web application serves as a comprehensive movie catalog, enabling users to search for films, create collections based on various filters, and log in for personalized use. The project is built using React, Redux, React-Router-DOM, and adheres to a functional design pattern. The user interface is crafted with Material UI, ensuring a modern, responsive, and cross-browser adaptive design.
 
 ---
 
@@ -11,6 +13,8 @@ This web application serves as a comprehensive movie catalog, enabling users to 
 - **User Authentication**: Log in to access personalized features and manage your movie lists.
 - **Movie Details**: View comprehensive information about each movie, including synopsis, cast, and reviews.
 - **Favorites Management**: Add and remove movies from your favorites for easy access.
+- **Skeleton Loading**: While data is being fetched, skeleton screens are displayed to improve user experience.
+- **Fallback Placeholders**: If any data fails to load, placeholders are used to maintain the application's visual consistency.
 - **Intuitive User Interface**: Optimistic and user-friendly interface designed for seamless navigation.
 - **Modern Design**: Built using Material UI to ensure a sleek and responsive user experience.
 
