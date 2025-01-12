@@ -51,7 +51,7 @@ To get started with the application, follow these steps:
 3. **Install dependencies:**
 * React+Vite
 * Redux
-* React-Router-DOM
+* React-Router
 * Material UI
 
 5. **Install additional libraries:**
