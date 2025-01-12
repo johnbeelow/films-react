@@ -18,7 +18,7 @@ The project leverages the following technologies and tools:
 
 - **React**: For building reusable UI components and managing the application's front-end logic.
 - **Redux**: To manage the application's global state efficiently.
-- **React-Router-DOM**: For seamless navigation between pages and managing routes.
+- **React-Route**: For seamless navigation between pages and managing routes.
 - **Material UI**: To create a modern, accessible, and visually appealing user interface.
 - **Vite**: For fast and optimized development and build processes.
 
@@ -37,11 +37,15 @@ To get started with the application, follow these steps:
    ```
    
 3. Install dependencies
+   - Vite
+   - Redux
+   - React-Router
+   - Material UI
    ```bash
    npm install
    ```
 
-4. Install the required libraries:
+5. Install the required libraries:
    ```bash
    npm i js-cookie
    ```
