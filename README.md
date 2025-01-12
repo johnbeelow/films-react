@@ -77,4 +77,4 @@ npm run dev
 3. **Open the "Films" project.**
 4. **Enter your email address.**
 5. **Enter the API key.**
-6. **Welcome!**.
+6. **Welcome!**
