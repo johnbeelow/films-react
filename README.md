@@ -43,11 +43,16 @@ To get started with the application, follow these steps:
    ```
 
 3. **Install dependencies:**
+* React
+* Redux
+* React-Router-DOM
+* Material UI
+* Vite
    ```bash
    npm install
    ```
 
-4. **Install additional libraries:**
+5. **Install additional libraries:**
    ```bash
    npm i js-cookie
    ```
