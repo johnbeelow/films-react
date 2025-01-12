@@ -68,7 +68,7 @@ npm run dev
 
 ---
 
-## Using the Application
+## How to Use
 
 ![films_auth](https://github.com/user-attachments/assets/a9944ff1-35aa-4eb7-bbca-7aa4e857484a)
 
