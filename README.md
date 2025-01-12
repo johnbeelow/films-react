@@ -49,6 +49,7 @@ To get started with the application, follow these steps:
 * Material UI
 
 5. **Install additional libraries:**
+
    ```bash
    npm i js-cookie
    ```
@@ -68,6 +69,6 @@ npm run dev
 1. **Register at** [The Movie Database](https://www.themoviedb.org/).
 2. **Obtain an API access key.**
 3. **Open the "Films" project.**
-4. Enter your email address.
-5. Enter the API key.
-6. **Welcome!** You are ready to explore the application.
+4. **Enter your email address.**
+5. **Enter the API key.**
+6. **Welcome!**.
