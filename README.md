@@ -41,6 +41,7 @@ To get started with the application, follow these steps:
    - Redux
    - React-Router
    - Material UI
+     
    ```bash
    npm install
    ```
