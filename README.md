@@ -37,10 +37,10 @@ To get started with the application, follow these steps:
    ```
    
 3. Install dependencies
-   - React + Vite
-   - Redux
-   - React-Router
-   - Material UI
+- React + Vite
+- Redux
+- React-Router
+- Material UI
      
    ```bash
    npm install
