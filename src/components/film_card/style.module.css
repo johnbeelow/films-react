@@ -1,0 +1,45 @@
+.card {
+  width: 260px;
+  height: 470px;
+  background: none;
+  box-shadow: none;
+}
+  
+  .imageContainer {
+    width: 380px;
+    height: 380px;
+    background-color: #2b2b2b;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .imageLoaded {
+    background-color: transparent;
+  }
+  
+  .cardMedia {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    position: absolute;
+  }
+  
+  .cardMediaVisible {
+    opacity: 1;
+  }
+  
+  .cardContent {
+    font-size: 18px;
+  }
+  
+  .cardSubtitle {
+    font-size: 14px;
+    color: grey;
+  }
+  
+  .cardActions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: start;
+  }
+  

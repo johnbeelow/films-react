@@ -1,0 +1,10 @@
+.modal {
+  backdrop-filter: blur(10px);
+}
+
+.modalContent {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 15px;
+}
