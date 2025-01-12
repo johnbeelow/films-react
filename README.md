@@ -7,7 +7,7 @@ This web application serves as a comprehensive movie catalog, enabling users to 
 ---
 
 ## Features
-
+![films_opt](https://github.com/user-attachments/assets/b8071bf6-d41c-477e-b66e-0b9a536d2e8c)
 - **Search Functionality**: Perform efficient searches for movies by title, release year, genre, and more.
 - **Filter Options**: Apply filters to narrow down search results effectively.
 - **User Authentication**: Log in to access personalized features and manage your movie lists.
@@ -26,7 +26,7 @@ The project leverages the following technologies and tools:
 
 - **React**: For building reusable UI components and managing the application's front-end logic.
 - **Redux**: To manage the application's global state efficiently.
-- **React-Router-DOM**: For seamless navigation between pages and managing routes.
+- **React-Router**: For seamless navigation between pages and managing routes.
 - **Material UI**: To create a modern, accessible, and visually appealing user interface.
 - **Vite**: For fast and optimized development and build processes.
 
