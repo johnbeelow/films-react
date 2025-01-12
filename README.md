@@ -1,4 +1,4 @@
-# Pet-project FILMS
+# Pet-project: Films
 
 ![film1](https://github.com/user-attachments/assets/8dec0428-1b11-4e9e-b5f5-8a26684bca0d)
 
