@@ -22,4 +22,30 @@ The project leverages the following technologies and tools:
 - **Material UI**: To create a modern, accessible, and visually appealing user interface.
 - **Vite**: For fast and optimized development and build processes.
 
-This application combines powerful features with a clean, professional design to deliver an engaging user experience for movie enthusiasts.
+## Installation
+
+To get started with the application, follow these steps:
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/johnbeelow/films-react.git
+   ```
+
+2. Navigate to the project directory:
+   ```bash
+   cd films-react
+   ```
+   
+3. Install dependencies
+  ```bash
+npm install
+```
+
+4. Install the required libraries:
+   ```bash
+   npm i js-cookie
+   ```
+
+Now the application is ready to use! To start it, use Parcel:
+```bash
+npx parcel index.html 
