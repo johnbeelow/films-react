@@ -37,9 +37,9 @@ To get started with the application, follow these steps:
    ```
    
 3. Install dependencies
-  ```bash
-npm install
-```
+   ```bash
+   npm install
+   ```
 
 4. Install the required libraries:
    ```bash
