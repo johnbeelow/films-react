@@ -40,7 +40,7 @@ To get started with the application, follow these steps:
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/johnbeelow/films-react.git
+   git clone https://github.com/johnbeelow/film-flow-v2.git
    ```
 
 2. **Navigate to the project directory:**
