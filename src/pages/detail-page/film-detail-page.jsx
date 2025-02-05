@@ -11,11 +11,12 @@ import {
   TableRow
 } from '@mui/material'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
-import { FavoriteButton } from '../../components/favorite_button'
+import { FavoriteButton } from '../../features/favorite_button/ui'
 import { useLoaderData } from 'react-router-dom'
-import { getFilmInfo } from '../../api/films_api'
-import { API_URL } from '../../config/config'
-import { getListLimit, getYear } from '../../utils/utils'
+import { getFilmInfo } from '../../shared/api/requests/films_api'
+import { API_URL } from '../../shared/api/constants/constants'
+import { getYear } from '../../shared/lib/date/get_year/get_year'
+import { getListLimit } from '../../shared/lib/text/get_list_limit/get_list_limit'
 import { Link } from 'react-router-dom'
 
 const { INFO, CREDITS } = API_URL.DETAILS

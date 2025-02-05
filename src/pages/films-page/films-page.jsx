@@ -1,5 +1,5 @@
-import { FiltersContainer } from '../../components/filters_container'
-import { FilmsContainer } from '../../components/films_container'
+import { SideBar } from '../../widgets/side_bar/ui'
+import { FilmsContainer } from '../../widgets/films_gallery/ui/films_container'
 import { useSelector } from 'react-redux'
 
 export const FilmPage = () => {
@@ -9,7 +9,7 @@ export const FilmPage = () => {
 
   return (
     <>
-      {isAuth ? <FiltersContainer /> : ''}
+      {isAuth ? <SideBar /> : ''}
       {isAuth ? <FilmsContainer /> : ''}
     </>
   )
