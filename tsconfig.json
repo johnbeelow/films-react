@@ -1,0 +1,48 @@
+{
+  "compilerOptions": {
+    /* 🎯 Целевые стандарты и окружение */
+    "target": "ES2020",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+
+    /* 📜 Поддержка дополнительных файлов */
+    "allowJs": true,
+    "resolveJsonModule": true,
+
+    /* 🚀 Производительность и оптимизации */
+    "incremental": true,
+    "isolatedModules": true,
+
+    /* 🔍 Проверка типов и строгие правила */
+    // "strict": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "moduleResolution": "bundler",
+    // "noImplicitAny": true,
+    // "noImplicitThis": true,
+    "strictNullChecks": true,
+    "allowSyntheticDefaultImports": true,
+
+    /* ⚡ Управление сборкой */
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    /* 📂 Алиасы */
+    "baseUrl": "src",
+    "paths": {
+      "*": ["src/*"],
+      "@app/*": ["app/*"],
+      "@pages/*": ["pages/*"],
+      "@widgets/*": ["widgets/*"],
+      "@features/*": ["features/*"],
+      "@entities/*": ["entities/*"],
+      "@shared/*": ["shared/*"]
+    }
+  },
+
+  /* 📌 Какие файлы включать в компиляцию */
+  "include": ["src", "global.d.ts", "**/*.ts", "**/*.tsx"],
+
+  /* 🛑 Исключаемые файлы и папки */
+  "exclude": ["node_modules"]
+}

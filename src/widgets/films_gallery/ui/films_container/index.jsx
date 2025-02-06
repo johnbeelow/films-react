@@ -38,7 +38,7 @@ export const FilmsContainer = () => {
   }, [isPopularSorting])
 
   useEffect(() => {
-    dispatch(fetchFavoriteFilms(userToken, accountId))
+    dispatch(fetchFavoriteFilms({userToken, accountId}))
   }, [dispatch, userToken, accountId])
 
   useEffect(() => {

@@ -3,7 +3,11 @@ import { useState, useEffect } from 'react'
 import { CircularProgress } from '@mui/material'
 import { useLocation } from 'react-router-dom'
 
-export const LoadingWrapper = ({ children }) => {
+type LayoutProps = {
+  children: React.ReactNode
+}
+
+export const LoadingWrapper = ({ children }: LayoutProps) => {
   const [loading, setLoading] = useState(true)
   const location = useLocation()
 

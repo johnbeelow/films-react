@@ -5,12 +5,16 @@ import { setUser } from '../../model/user_slice'
 import { selectUserToken } from '../../model/user_slice'
 import { fetchUserId } from '../../model/user_slice'
 
-export const TokenModal = ({ onClose }) => {
+interface TokenModalProps {
+  onClose: () => void
+}
+
+export const TokenModal = ({ onClose }: TokenModalProps) => {
   const [inputText, setInputText] = useState('')
   const userToken = useSelector(selectUserToken)
   const dispatch = useDispatch()
 
-  const handleChangeInputText = (e) => {
+  const handleChangeInputText = (e: React.ChangeEvent<HTMLInputElement>) => {
     const token = e.target.value
     setInputText(token)
   }
@@ -38,7 +42,7 @@ export const TokenModal = ({ onClose }) => {
         />
         <DialogActions sx={{ padding: 0 }}>
           <Button onClick={onClose}>Отмена</Button>
-          <Button onClick={handleSaveToken}>Запросить</Button>
+          <Button type='submit'>Запросить</Button>
         </DialogActions>
       </Box>
     </>

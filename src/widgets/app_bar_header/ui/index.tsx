@@ -1,9 +1,8 @@
 import { AppBar, Box, Toolbar, Typography, IconButton } from '@mui/material'
 import { Menu as MenuIcon, AccountCircle, ExitToApp as ExitToAppIcon } from '@mui/icons-material'
 import { useSelector, useDispatch } from 'react-redux'
-import { logoutUser } from '../../auth/model/user_slice'
-import { showModal } from '../../auth/model/ui_slice'
-import { selectUserToken } from '../../auth/model/user_slice'
+import { logoutUser, selectUserToken } from '@widgets/auth/model/user_slice'
+import { showModal } from '@widgets/auth/model/ui_slice' 
 
 export const AppBarHeader = () => {
   const userToken = useSelector(selectUserToken)

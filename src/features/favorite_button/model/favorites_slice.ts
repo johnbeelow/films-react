@@ -1,17 +1,37 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import { getFavoriteFilm, postFavoriteFilm } from '../../../shared/api/requests/films_api'
+import { getFavoriteFilm, postFavoriteFilm } from '@shared/api/requests/films_api'
 
-const initialState = {
+type FavoriteFilm = { id: number }
+
+type initialStateTypes = {
+  favoriteList: FavoriteFilm[]
+  message: string
+  status: string
+}
+
+type RequestPropsTypes = {
+  userToken: string
+  accountId: number
+  filmId: number
+  isFavorite: boolean
+}
+
+const initialState: initialStateTypes = {
   favoriteList: [],
   message: '',
   status: ''
 }
 
-export const fetchFavoriteFilms = createAsyncThunk('favorites/fetchFavoriteFilms', getFavoriteFilm)
+export const fetchFavoriteFilms = createAsyncThunk(
+  'favorites/fetchFavoriteFilms',
+  async ({ userToken, accountId }: RequestPropsTypes) => {
+    return await getFavoriteFilm(userToken, accountId)
+  }
+)
 
 export const toggleFavoriteFilms = createAsyncThunk(
   'favorites/toggleFavoriteFilms',
-  async ({ userToken, accountId, filmId, isFavorite }) => {
+  async ({ userToken, accountId, filmId, isFavorite }: RequestPropsTypes) => {
     return await postFavoriteFilm(userToken, accountId, filmId, isFavorite)
   }
 )
@@ -34,12 +54,15 @@ const favoritesSlice = createSlice({
         state.favoriteList = action.payload
       })
       .addCase(fetchFavoriteFilms.rejected, (state, action) => {
-        state.favoriteList = action.payload
+        state.favoriteList = action.payload as FavoriteFilm[]
         state.message = 'Упс, произошла ошибка, при добавление в избранное.'
         state.status = 'error'
       })
       .addCase(toggleFavoriteFilms.fulfilled, (state, action) => {
+        if (!action.payload) return
+
         const { filmId, isFavorite } = action.payload
+
         if (isFavorite) {
           state.favoriteList.push({ id: filmId })
           state.message = 'Добавлено в избранное'

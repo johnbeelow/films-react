@@ -1,4 +1,4 @@
-import { TextField, Box } from '@mui/material'
+import { TextField, Box, Slider } from '@mui/material'
 import { useSelector, useDispatch } from 'react-redux'
 import { setSearchText } from '../../filters/model/filters_slice'
 import { selectFiltersSearchText } from '../../filters/model/filters_slice'
@@ -7,7 +7,7 @@ export const SearchFilms = () => {
   const dispatch = useDispatch()
   const searchText = useSelector(selectFiltersSearchText)
 
-  const handleSearchChange = (e) => {
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputText = e.target.value
     dispatch(setSearchText(inputText))
   }

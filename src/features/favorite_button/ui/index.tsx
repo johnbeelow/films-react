@@ -1,17 +1,27 @@
+import { useState, useEffect } from 'react'
 import { IconButton, Tooltip, Snackbar, Alert } from '@mui/material'
 import { FavoriteBorder, Favorite } from '@mui/icons-material'
-import { useSelector, useDispatch } from 'react-redux'
-import { toggleFavoriteFilms, clearMessage } from '../model/favorites_slice'
-import { useState, useEffect } from 'react'
-import { selectFavoriteList, selectFavoriteMessage, selectFavoriteStatus } from '../model/favorites_slice'
-import { selectUserToken } from '../../../widgets/auth/model/user_slice'
+import { useAppSelector, useAppDispatch } from '@shared/hooks'
+import { selectUserToken } from '@widgets/auth/model/user_slice'
+import {
+  toggleFavoriteFilms,
+  clearMessage,
+  selectFavoriteList,
+  selectFavoriteMessage,
+  selectFavoriteStatus
+} from '../model/favorites_slice'
 
-export const FavoriteButton = ({ filmId, accountId }) => {
-  const favoriteList = useSelector(selectFavoriteList)
-  const message = useSelector(selectFavoriteMessage)
-  const status = useSelector(selectFavoriteStatus)
-  const userToken = useSelector(selectUserToken)
-  const dispatch = useDispatch()
+type FavoriteButtonTypes = {
+  filmId: number
+  accountId: number
+}
+
+export const FavoriteButton = ({ filmId, accountId }: FavoriteButtonTypes) => {
+  const favoriteList = useAppSelector(selectFavoriteList)
+  const message = useAppSelector(selectFavoriteMessage)
+  const status = useAppSelector(selectFavoriteStatus)
+  const userToken = useAppSelector(selectUserToken)
+  const dispatch = useAppDispatch()
   const [isFavorite, setIsFavorite] = useState(false)
 
   useEffect(() => {

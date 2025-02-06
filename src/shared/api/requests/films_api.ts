@@ -1,12 +1,12 @@
-const fetchOptionsGet = (userToken) => ({
+const fetchOptionsGet = (userToken: string) => ({
   method: 'GET',
   headers: {
     accept: 'application/json',
-    Authorization: `Bearer ${userToken}`,
-  },
-});
+    Authorization: `Bearer ${userToken}`
+  }
+})
 
-export const getFilmInfo = async (userToken, id, url) => {
+export const getFilmInfo = async (userToken: string, id: number, url: string) => {
   const fetchUrl = `https://api.themoviedb.org/3/movie/${id}${url}`
 
   try {
@@ -18,7 +18,7 @@ export const getFilmInfo = async (userToken, id, url) => {
   }
 }
 
-export const getGenres = async (userToken) => {
+export const getGenres = async (userToken: string) => {
   const url = 'https://api.themoviedb.org/3/genre/movie/list?language=ru'
 
   try {
@@ -30,7 +30,7 @@ export const getGenres = async (userToken) => {
   }
 }
 
-export const getFilmsSorting = async (userToken, url, page) => {
+export const getFilmsSorting = async (userToken: string, url: string, page: string) => {
   const urlSorting = `${url}=${page}`
 
   try {
@@ -42,25 +42,25 @@ export const getFilmsSorting = async (userToken, url, page) => {
   }
 }
 
-export const getUserId = async (userToken) => {
-  const fetchUrl = `https://api.themoviedb.org/3/account/account_id`;
+export const getUserId = async (userToken: string) => {
+  const fetchUrl = `https://api.themoviedb.org/3/account/account_id`
   try {
-    const response = await fetch(fetchUrl, fetchOptionsGet(userToken));
-    const data = await response.json();
+    const response = await fetch(fetchUrl, fetchOptionsGet(userToken))
+    const data = await response.json()
 
     if (!response.ok) {
-      console.error('Ошибка API:', data);
-      return {}; 
+      console.error('Ошибка API:', data)
+      return {}
     }
 
-    return data;
+    return data
   } catch (err) {
-    console.error('Ошибка запроса getUserId:', err);
-    return {};
+    console.error('Ошибка запроса getUserId:', err)
+    return {}
   }
-};
+}
 
-export const postFavoriteFilm = async (userToken, accountId, filmId, isFavorite) => {
+export const postFavoriteFilm = async (userToken: string, accountId: number, filmId: number, isFavorite: boolean) => {
   const fetchUrl = `https://api.themoviedb.org/3/account/${accountId}/favorite`
 
   try {
@@ -84,7 +84,7 @@ export const postFavoriteFilm = async (userToken, accountId, filmId, isFavorite)
   }
 }
 
-export const getFavoriteFilm = async (userToken, accountId) => {
+export const getFavoriteFilm = async (userToken: string, accountId: number) => {
   const fetchUrl = `https://api.themoviedb.org/3/account/${accountId}/favorite/movies`
   try {
     const response = await fetch(fetchUrl, fetchOptionsGet(userToken))
@@ -95,7 +95,7 @@ export const getFavoriteFilm = async (userToken, accountId) => {
   }
 }
 
-export const getSearchFilm = async (userToken, search) => {
+export const getSearchFilm = async (userToken: string, search: string) => {
   const fetchUrl = `https://api.themoviedb.org/3/search/movie?query=${search}&include_adult=false&language=ru-RU&page=1`
   try {
     const response = await fetch(fetchUrl, fetchOptionsGet(userToken))

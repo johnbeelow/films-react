@@ -3,16 +3,19 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { setUser } from '../../model/user_slice'
 
-export const EmailModal = ({ onClose }) => {
+interface EmailModalProps {
+  onClose: () => void
+}
+
+export const EmailModal = ({ onClose }: EmailModalProps) => {
   const [inputText, setInputText] = useState('')
   const dispatch = useDispatch()
 
-  const handleChangeInputText = (e) => {
-    const email = e.target.value
-    setInputText(email)
+  const handleChangeInputText = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputText(e.target.value)
   }
 
-  const handleSaveEmail = (e) => {
+  const handleSaveEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     dispatch(setUser({ email: inputText }))
   }
@@ -30,7 +33,7 @@ export const EmailModal = ({ onClose }) => {
         />
         <DialogActions sx={{ padding: 0 }}>
           <Button onClick={onClose}>Отмена</Button>
-          <Button onClick={handleSaveEmail}>Запросить</Button>
+          <Button type='submit'>Запросить</Button>
         </DialogActions>
       </Box>
     </>
