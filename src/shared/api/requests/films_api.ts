@@ -30,7 +30,7 @@ export const getGenres = async (userToken: string) => {
   }
 }
 
-export const getFilmsSorting = async (userToken: string, url: string, page: string) => {
+export const getFilmsSorting = async (userToken: string, url: string, page: string)  => {
   const urlSorting = `${url}=${page}`
 
   try {

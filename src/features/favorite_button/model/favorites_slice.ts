@@ -9,7 +9,7 @@ type initialStateTypes = {
   status: string
 }
 
-type RequestPropsTypes = {
+type RequestProps = {
   userToken: string
   accountId: number
   filmId: number
@@ -24,14 +24,14 @@ const initialState: initialStateTypes = {
 
 export const fetchFavoriteFilms = createAsyncThunk(
   'favorites/fetchFavoriteFilms',
-  async ({ userToken, accountId }: RequestPropsTypes) => {
+  async ({ userToken, accountId }: RequestProps) => {
     return await getFavoriteFilm(userToken, accountId)
   }
 )
 
 export const toggleFavoriteFilms = createAsyncThunk(
   'favorites/toggleFavoriteFilms',
-  async ({ userToken, accountId, filmId, isFavorite }: RequestPropsTypes) => {
+  async ({ userToken, accountId, filmId, isFavorite }: RequestProps) => {
     return await postFavoriteFilm(userToken, accountId, filmId, isFavorite)
   }
 )

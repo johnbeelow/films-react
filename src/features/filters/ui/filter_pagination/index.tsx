@@ -8,7 +8,7 @@ export const FilterPagination = () => {
   const dispatch = useDispatch()
   const currentPage = useSelector(selectFilterCurrentPage)
 
-  const handlePageChange = (e, page) => {
+  const handlePageChange = (e: React.ChangeEvent, page) => {
     dispatch(changePage(page))
   }
 

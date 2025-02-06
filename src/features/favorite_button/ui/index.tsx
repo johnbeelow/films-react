@@ -11,12 +11,12 @@ import {
   selectFavoriteStatus
 } from '../model/favorites_slice'
 
-type FavoriteButtonTypes = {
+type FavoriteButtonProps = {
   filmId: number
   accountId: number
 }
 
-export const FavoriteButton = ({ filmId, accountId }: FavoriteButtonTypes) => {
+export const FavoriteButton = ({ filmId, accountId }: FavoriteButtonProps) => {
   const favoriteList = useAppSelector(selectFavoriteList)
   const message = useAppSelector(selectFavoriteMessage)
   const status = useAppSelector(selectFavoriteStatus)

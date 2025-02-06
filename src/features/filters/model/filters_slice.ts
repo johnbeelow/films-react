@@ -1,16 +1,47 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import { getCurrentYear } from '../../../shared/lib/date/get_current_year/get_current_year'
-import { getGenres, getFilmsSorting, getSearchFilm } from '../../../shared/api/requests/films_api'
+import { getCurrentYear } from '@shared/lib/date/get_current_year/get_current_year'
+import { getGenres, getFilmsSorting, getSearchFilm } from '@shared/api/requests/films_api'
+
+type RequestProps = {
+  userToken: string
+  url: string
+  page: string
+  search: string
+}
+
+type initialStateTypes = {
+  search: string
+  sorting: string[]
+  years: number[]
+  genres: string[]
+  selectedSorting: string
+  selectedYears: number[]
+  selectedGenres: string[]
+  filmsPage: number[]
+  pagination: number
+}
 
 const firstYear = 1980
 const lastYear = getCurrentYear()
 const intervalYears = lastYear - 10
 
 export const fetchGenres = createAsyncThunk('filters/fetchGenres', getGenres)
-export const fetchFilmsSorting = createAsyncThunk('filters/fetchFilmsSorting', getFilmsSorting)
-export const fetchSearchFilm = createAsyncThunk('filters/fetchSearchFilm', getSearchFilm)
 
-const initialState = {
+export const fetchFilmsSorting = createAsyncThunk(
+  'filters/fetchFilmsSorting',
+  async ({ userToken, url, page }: RequestProps) => {
+    return await getFilmsSorting(userToken, url, page)
+  }
+)
+
+export const fetchSearchFilm = createAsyncThunk(
+  'filters/fetchSearchFilm',
+  async ({ userToken, search }: RequestProps) => {
+    return await getSearchFilm(userToken, search)
+  }
+)
+
+const initialState: initialStateTypes = {
   search: '',
   sorting: ['Популярности', 'По рейтингу'],
   years: [firstYear, lastYear],
@@ -46,6 +77,7 @@ const filterSlice = createSlice({
     },
     toggleGenre: (state, action) => {
       const genreId = action.payload
+
       if (state.selectedGenres.includes(genreId)) {
         state.selectedGenres = state.selectedGenres.filter((id) => id !== genreId)
       } else {

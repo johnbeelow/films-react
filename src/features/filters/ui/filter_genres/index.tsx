@@ -1,31 +1,33 @@
 import { useEffect } from 'react'
 import { Checkbox, TextField, Autocomplete } from '@mui/material'
 import { CheckBoxOutlineBlank as CheckBoxOutlineBlankIcon, CheckBox as CheckBoxIcon } from '@mui/icons-material'
-import { useSelector, useDispatch } from 'react-redux'
+import { useAppSelector, useAppDispatch } from '@shared/hooks'
 import { toggleGenre, fetchGenres } from '../../model/filters_slice'
-import { selectFilterGenres } from '../../model/filters_slice'
-import { selectUserToken } from '../../../../widgets/auth/model/user_slice'
+import { selectFilterGenres } from '../../model/filters_slice' 
+import { selectUserToken } from '@widgets/auth/model/user_slice'
+
+type Genres = { id: number; name: string }
 
 const icon = <CheckBoxOutlineBlankIcon fontSize='small' />
 const checkedIcon = <CheckBoxIcon fontSize='small' />
 
 export const FilterGenres = () => {
-  const dispatch = useDispatch()
-  const genres = useSelector(selectFilterGenres)
-  const userToken = useSelector(selectUserToken)
+  const dispatch = useAppDispatch()
+  const genres = useAppSelector(selectFilterGenres)
+  const userToken = useAppSelector(selectUserToken)
 
   useEffect(() => {
     if (!userToken) return
     dispatch(fetchGenres(userToken))
   }, [dispatch, userToken])
 
-  const handleGenreChange = (genreId) => {
+  const handleGenreChange = (genreId: number) => {
     dispatch(toggleGenre(genreId))
   }
 
   return (
-    <Autocomplete
-      multiple
+    <Autocomplete<Genres, true, false>
+      multiple={true}
       options={genres}
       disableCloseOnSelect
       getOptionLabel={(option) => option.name}
