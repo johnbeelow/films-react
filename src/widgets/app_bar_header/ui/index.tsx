@@ -30,7 +30,7 @@ export const AppBarHeader = () => {
           </IconButton>
 
           <Typography variant='h6' component='div' sx={{ flexGrow: 1 }}>
-            Фильмы
+            FilmFlow
           </Typography>
 
           {userToken ? (
