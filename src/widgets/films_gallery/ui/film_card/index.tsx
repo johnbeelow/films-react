@@ -1,13 +1,20 @@
+import { useState } from 'react'
 import styles from './style.module.css'
 import { Card, CardMedia, CardActionArea, Skeleton, Box, CardContent, Typography, CardActions } from '@mui/material'
 import { Link } from 'react-router-dom'
-import { FavoriteButton } from '../../../../features/favorite_button/ui'
-import { useState } from 'react'
+import { FavoriteButton } from '@features/favorite_button/ui'
+import { formatRating } from '@shared/lib/text/format_rating/format_rating'
+import { formatTitle } from '@shared/lib/text/format_title/format_title'
 
-import { formatRating } from '../../../../shared/lib/text/format_rating/format_rating'
-import { formatTitle } from '../../../../shared/lib/text/format_title/format_title'
+type FilmCardProps = {
+  img: string
+  title: string
+  rate: number
+  isLoading: boolean
+  id: number
+}
 
-export const FilmCard = ({ img, title, rate, isLoading = false, id }) => {
+export const FilmCard = ({ img, title, rate, isLoading = false, id }: FilmCardProps) => {
   const [isLoadedImage, setIsLoadedImage] = useState(false)
 
   return (
@@ -44,7 +51,7 @@ export const FilmCard = ({ img, title, rate, isLoading = false, id }) => {
             <Typography className={styles.cardSubtitle}>{formatRating(rate)}</Typography>
           )}
         </CardContent>
-        <CardActions>{isLoading && id ? null : <FavoriteButton filmId={id} />}</CardActions>
+        <CardActions>{isLoading && id ? null : <FavoriteButton filmId={id} accountId={0} />}</CardActions>
       </Box>
     </Card>
   )

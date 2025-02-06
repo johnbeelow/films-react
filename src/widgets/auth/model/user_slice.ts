@@ -1,13 +1,20 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import { getUserId } from '../../../shared/api/requests/films_api'
+import { getUserId } from '@shared/api/requests/films_api'
 import Cookies from 'js-cookie'
 
-export const fetchUserId = createAsyncThunk('user/fetchUserId', async (userToken) => {
+type initialStateTypes = {
+  email: string | null
+  token: string | null
+  login: string | number | null
+  id: string | number | null
+}
+
+export const fetchUserId = createAsyncThunk('user/fetchUserId', async (userToken: string) => {
   const data = await getUserId(userToken)
   return { id: data.id, login: data.username }
 })
 
-const initialState = {
+const initialState: initialStateTypes = {
   email: Cookies.get('email') || null,
   token: Cookies.get('token') || null,
   login: Cookies.get('login') || null,

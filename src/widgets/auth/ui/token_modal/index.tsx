@@ -1,9 +1,9 @@
 import { DialogTitle, TextField, DialogActions, Button, Box } from '@mui/material'
 import { useState, useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useAppSelector, useAppDispatch } from '@shared/hooks' 
 import { setUser } from '../../model/user_slice'
 import { selectUserToken } from '../../model/user_slice'
-import { fetchUserId } from '../../model/user_slice'
+import { fetchUserId } from '../../model/user_slice' 
 
 interface TokenModalProps {
   onClose: () => void
@@ -11,8 +11,8 @@ interface TokenModalProps {
 
 export const TokenModal = ({ onClose }: TokenModalProps) => {
   const [inputText, setInputText] = useState('')
-  const userToken = useSelector(selectUserToken)
-  const dispatch = useDispatch()
+  const userToken = useAppSelector(selectUserToken)
+  const dispatch = useAppDispatch()
 
   const handleChangeInputText = (e: React.ChangeEvent<HTMLInputElement>) => {
     const token = e.target.value

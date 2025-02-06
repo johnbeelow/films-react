@@ -1,6 +1,6 @@
-import { DialogTitle, TextField, DialogActions, Button, Box } from '@mui/material'
 import { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { DialogTitle, TextField, DialogActions, Button, Box } from '@mui/material'
+import { useAppDispatch } from '@shared/hooks'
 import { setUser } from '../../model/user_slice'
 
 interface EmailModalProps {
@@ -9,7 +9,7 @@ interface EmailModalProps {
 
 export const EmailModal = ({ onClose }: EmailModalProps) => {
   const [inputText, setInputText] = useState('')
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
 
   const handleChangeInputText = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputText(e.target.value)

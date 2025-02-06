@@ -15,12 +15,9 @@
     "isolatedModules": true,
 
     /* 🔍 Проверка типов и строгие правила */
-    // "strict": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "moduleResolution": "bundler",
-    // "noImplicitAny": true,
-    // "noImplicitThis": true,
     "strictNullChecks": true,
     "allowSyntheticDefaultImports": true,
 

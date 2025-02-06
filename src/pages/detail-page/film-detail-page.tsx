@@ -1,3 +1,12 @@
+import { useLoaderData } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import ArrowBackIcon from '@mui/icons-material/ArrowBack'
+import { FavoriteButton } from '@features/favorite_button/ui'
+import { getFilmInfo } from '@shared/api/requests/films_api'
+import { API_URL } from '@shared/api/constants/constants'
+import { getYear } from '@shared/lib/date/get_year/get_year'
+import { getListLimit } from '@shared/lib/text/get_list_limit/get_list_limit'
+import { store } from '@app/store/store'
 import {
   Box,
   Container,
@@ -10,14 +19,6 @@ import {
   TableContainer,
   TableRow
 } from '@mui/material'
-import ArrowBackIcon from '@mui/icons-material/ArrowBack'
-import { FavoriteButton } from '../../features/favorite_button/ui'
-import { useLoaderData } from 'react-router-dom'
-import { getFilmInfo } from '../../shared/api/requests/films_api'
-import { API_URL } from '../../shared/api/constants/constants'
-import { getYear } from '../../shared/lib/date/get_year/get_year'
-import { getListLimit } from '../../shared/lib/text/get_list_limit/get_list_limit'
-import { Link } from 'react-router-dom'
 
 const { INFO, CREDITS } = API_URL.DETAILS
 
@@ -83,7 +84,7 @@ export const FilmDetailPage = () => {
             <Typography variant='h4'>
               {details.title} ({details.year})
             </Typography>
-            <FavoriteButton filmId={info.id} />
+            <FavoriteButton filmId={info.id} accountId={0} />
           </Box>
 
           <Link to={'/'}>
@@ -139,8 +140,16 @@ const getCreditsInfo = (crew, job) =>
     .join(', ') || '-'
 
 export const loader = async ({ params }) => {
-  const info = await getFilmInfo(params.movieId, INFO)
-  const credits = await getFilmInfo(params.movieId, CREDITS)
+  const state = store.getState()
+  const userToken = state.user.token
+
+  if (!userToken) {
+    console.warn(`Отсутствует ${userToken}, запрос не выполнен`)
+    return { info: null, credits: null }
+  }
+
+  const info = await getFilmInfo(userToken, params.movieId, INFO)
+  const credits = await getFilmInfo(userToken, params.movieId, CREDITS)
 
   return { info, credits }
 }

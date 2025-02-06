@@ -1,7 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { setUser } from './user_slice'
 
-const initialState = {
+type initialStateTypes = {
+  authModal: boolean
+  pagination: number
+}
+
+const initialState: initialStateTypes = {
   authModal: false,
   pagination: 1
 }
